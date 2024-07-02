@@ -1,0 +1,89 @@
+<script src="https://cdn.canvasjs.com/ga/canvasjs.min.js"></script>
+<div class="navbar">
+    <a routerLink="/projectlist" class="navbar-link">Project List</a>
+  </div>
+ 
+  
+  <div class="main-content">
+      <div class="fluid">
+          <div class="container-fluid position-relative">
+              <div class="header-container">
+                  <div class="row">
+                      <div class="col bg-image">
+                          <div class="header-text text-white position-absolute top-50 start-0 translate-middle-y ms-4 fs-4 fs-md-4 fs-lg-2">
+                              &lt;  Project list
+                          </div>
+                          <div class="logo text-center position-absolute top-0 start-20 translate-middle">
+                              <img src="../assets/Logo (2).svg" alt="Logo" style="width: 50px; height: auto" />
+                          </div>
+                      </div>
+                  </div>
+              </div>
+  
+              <div class="row">
+                  <div class="col-sm-1 sticky-top">
+                      <div class="d-flex flex-sm-column flex-row flex-nowrap align-items-center sticky-top">
+                          <ul class="nav nav-pills navbar nav-flush flex-sm-column flex-row flex-nowrap mb-auto mx-auto text-center align-items-center">
+                              <li>
+                                  <a [routerLink]="['/dashboard']" class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip"
+                                      data-bs-placement="right" data-bs-original-title="Dashboard"
+                                      (click)="toggleIcon('dashboardIcon')">
+                                      <img id="dashboardIcon"
+                                          [src]="selectedIcon === 'dashboardIcon' ? '../assets/Dashboard-active (1).svg' : '/../assets/Dashboard (1).svg'"
+                                          alt="Dashboard" class="icon fs-1">
+                                  </a>
+                              </li>
+                              <li>
+                                  <a [routerLink]="['/projectlist']" class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip"
+                                      data-bs-placement="right" data-bs-original-title="Orders"
+                                      (click)="toggleIcon('ordersIcon')">
+                                      <img id="ordersIcon"
+                                          [src]="selectedIcon === 'ordersIcon' ? '/../assets/Project-list-active (1).svg' : '/../assets/Project-list (1).svg'"
+                                          alt="ProjectList" class="icon fs-1">
+                                  </a>
+                              </li>
+                              <li>
+                                  <a [routerLink]="['/create project']" class="nav-link py-3 px-2" title=""
+                                      data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Products"
+                                      (click)="toggleIcon('productsIcon')">
+                                      <img id="productsIcon"
+                                          [src]="selectedIcon === 'productsIcon' ? '/../assets/create-project-active (1).svg' : '/../assets/create-project (1).svg'"
+                                          alt="CreateProject" class="icon fs-1">
+                                  </a>
+                              </li>
+                              <li>
+                                  <a class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                      data-bs-original-title="Orders">
+                                      <img id="ordersIcon" src="/../assets/Logout (1).svg" alt="Logout" class="icon fs-1">
+                                  </a>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+                  <div class=" col-sm p-4 min-vh-100" style="background-color: #f3f5f7"> 
+                    <div class="dashboard">
+                        <div class="card">
+                          <h3>Total</h3>
+                          <p>{{ counts?.totalProjects }}</p>
+                        </div> 
+                    <div class="dashboard">
+                        <div class="card">
+                          <h3>Running </h3>
+                          <p>{{ counts?.running }}</p>
+                        </div>
+                        <div class="card">
+                          <h3>Closed </h3>
+                          <p>{{ counts?.closed}}</p>
+                        </div>
+                        <div class="card">
+                          <h3>Delayed   </h3>
+                          <p>{{ counts?.delayed}}</p>
+                        </div>
+                       
+                    
+
+                    </div>
+              </div>
+          </div>
+      </div>
+  </div>

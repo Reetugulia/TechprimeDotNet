@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="header text-center" >
+      <img src="./assets/login-bg-1 (2).svg"  >
+      <div class="logo position-absolute w-49" style="top:150px;left:50px ;right:5px; bottom: 10px; border-top-style: round;">
+        <img src="./assets/Logo (2).svg">
+          <p class="text-white m-4">Online Project Management</p>
+        <div class="row needs-validation">
+          <div class="col-md-4 offset-md-4"style=" border-radius: 20px;height:350px;background-color: #f0f0f0;border-top-style: round">
+            <h2>login form</h2>
+            <form [formGroup]="loginForm" >
+              
+              <div class="form-group"style="text-align: left; padding-right: 10px;" [ngClass]="{'invalid': loginForm.controls['email'].invalid && loginForm.controls['email'].touched}">
+                <label for="email"[style.color]="color" >email</label>
+                <input type="email" class="form-control" name="email" [style.borderColor]="loginForm.controls['email'].invalid && loginForm.controls['email'].touched ? 'red' : ''" [style.borderColor]="color" id="email" formControlName="email">
+                <div class="text-danger" *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].invalid"><span *ngIf="loginForm.controls['email'].errors?.['required']">email is required</span></div>
+              </div> 
+              
+              <div class="form-group"style="text-align: left; padding-right: 10px;" [ngClass]="{'invalid': loginForm.controls['email'].invalid && loginForm.controls['email'].touched}">
+                <label for="password"[style.color]="color">Password</label>
+                <input type="password" class="form-control" name="password" [style.borderColor]="loginForm.controls['email'].invalid && loginForm.controls['email'].touched ? 'red' : ''"[style.borderColor]="color" id="password" formControlName="password">
+                <div class="text-danger" *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].invalid">
+                   <span *ngIf="loginForm.controls['password'].errors?.['required']">password is required</span>
+                 </div>
+              </div> 
+              
+              <div class="text-end" >
+                <a href="#" class="text-primary text-end text-decoration-none">forget password?</a>
+                <i class="bi bi-eye-slash" id="togglePassword"></i>
+              </div>  
+              <div>
+                <button type="submit" (click)="onlogin()" class="btn btn-primary button-spacing" >Login</button>
+              </div>
+             
+            </form>
+          </div>
+        </div>
+      </div>
